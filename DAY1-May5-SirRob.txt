@@ -133,9 +133,9 @@ vlan 10
 vlan 50
    name IPCameraVLAN
 vlan 69
-   name vlanNIrobert
+   name vlanNETFLIX
 vlan 70
-    name EXTRAVLAN
+    name GIPITPERA
 vlan 71
     name HRD-POLICY
 vlan 100
@@ -172,10 +172,10 @@ config t
 ip routing
 ip dhcp pool CAMERA6
 host 10.52.50.6 255.255.255.0
-client-identifier 001a.xxxx.yyyy
+client-identifier 001a.0709.C234
 ip dhcp pool CAMERA8
 host 10.52.50.8 255.255.255.0
-client-identifier 001a.xxxx.yyyy 
+client-identifier 001a.070a.1ffa 
 end
 show ip dhcp binding
 
