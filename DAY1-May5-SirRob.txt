@@ -246,18 +246,18 @@ ephone-dn 7
 ephone-dn 8
   number 5288
  ephone-dn 9
-   number 5299
+   number 5267
 ephone-dn 10
- number 5298
+ number 5223
 Ephone 1
   Mac-address cafe.face.baba
   type 8945
-  button 1:8 2:7 3:6 4:5
+  button 1:8 2:7 3:6 4:9
   restart
 Ephone 2
   Mac-address fafa.caca.baba
   type 8945
-  button 1:4 2:3 3:2 4:1
+  button 1:4 2:3 3:2 4:10
   restart  
 end
 
