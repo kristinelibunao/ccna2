@@ -263,6 +263,67 @@ switchport mode access
 switchport access vlan 34
 do show vlan brief
 int e1/0
+
+
+*****************************day 4*************************************
+@1 define inside outside
+
+conf t
+int g1
+ip nat outside
+int g3
+ip nat inside
+access-list 1 permit any
+ip nat inside source list 1 int g1 overload
+end
+
+
+@@2create access list
+conf t
+access-list 1 permit any
+end
+
+
+@@3
+conf t
+ip nat inside source list 1 int g1 overload
+end
+
+
+
+sudo su
+hostname WEB2
+ifconfig eth0 10.11.11.101 netmask 255.255.255.224 up
+route add default gw 10.11.11.113
+ping 10.11.11.113
+
+
+sudo su
+hostname WEB2
+ifconfig eth0 10.21.21.211 netmask 255.255.255.240 up
+route add default gw 10.21.21.213
+ping 10.21.21.213
+
+conf t
+ip nat inside source static tcp 10.11.11.101 80 208.8.8.200 8080
+ip nat inside source static tcp 10.11.11.102 443 208.8.8.200 8443
+
+ip nat inside source static tcp 10.11.11.101 443 208.8.8.200 443
+ip nat inside source static tcp 10.11.11.102 80 208.8.8.200 80
+end
+
+
+conf t
+ip nat inside source static tcp 10.11.11.101 22 208.8.8.105 8765
+ip nat inside source static tcp 10.11.11.102 22 208.8.8.105 5432
+end
+
+
+
+
+
+
+
 no shut
 switchport mode access
 switchport access vlan 23
